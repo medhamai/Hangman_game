@@ -35,32 +35,21 @@ class Game {
 	} 
 	public static void startGame(String word, String word1) 
 	{ 
-		// total guesses 
-		int guess_num = 0; 
-
-		// number of wrong guesses 
-		int wrong = 0; 
-
-		// for each guess 
-		String guess; 
-
-		// stores the guessed letter 
+ 
+		int guess_num = 0; 
+		int wrong = 0; 
+		String guess; 
 		char letter; 
-
-		// stores if the letter was 
-		// already guessed 
 		boolean guessescontainsguess; 
 		String guesses = ""; 
 		boolean guessinword; 
-
-		// while loop starts here 
+
 		while (wrong < 5 && word1.contains("_")) { 
 
 			System.out.println(word1 + "\n"); 
 			int temp = 5 - wrong; 
 			if (wrong != 0) { 
-
-				// for picture 1 
+
 				System.out.println("You have " + temp 
 								+ " guesses left."); 
 			} 
@@ -70,23 +59,19 @@ class Game {
 			// takes guess input 
 			guess = input.nextLine(); 
 
-			// converts to uppercase 
-			// for comparison 
+			// converts to uppercase 
 			guess = guess.toUpperCase(); 
 
-			// gets the first letter 
-			// as guessed letter 
+			// gets the first letter 
 			letter = guess.charAt(0); 
 
 			guessescontainsguess 
 				= (guesses.indexOf(letter)) != -1; 
 
-			// stores every letter 
-			// guessed in guesses 
+			// stores every letter that is guesses
 			guesses += letter; 
 
-			// converts to uppercase for 
-			// comparison 
+			// converts to uppercase for 
 			letter = Character.toUpperCase(letter); 
 			System.out.println(); 
 
@@ -101,10 +86,8 @@ class Game {
 			// guessed letter is in the word 
 			guessinword = (word.indexOf(letter)) != -1; 
 
-			// if statement begins 
 			if (guessinword == true) { 
-
-				// print the letter 
+
 				System.out.println( 
 					letter + " is present in the word."); 
 				System.out.print("\n"); 
@@ -115,10 +98,8 @@ class Game {
 				for (int position = 0; 
 					position < word.length(); position++) { 
 
-					// guessed letter is equal to 
-					// letter at position in word 
-					// and word1 has previously does not 
-					// have that letter 
+					// guessed letter is equal to letter at position
+
 					if (word.charAt(position) == letter 
 						&& word1.charAt(position) 
 							!= letter) { 
@@ -134,24 +115,19 @@ class Game {
 					} 
 				} 
 			} 
-
-			// if statement ends, else if begins 
+ 
 			else { 
-
-				// prints 
-				// wrong = wrong + 1, after every 
-				// wrong answer 
+// incrementas no of wrongs
 				System.out.println( 
 					letter 
 					+ " is not present in the word."); 
 				wrong++; 
 			} 
 
-			// guess_ = guess_ + 1, after every 
-			// attempt 
+			// shows remaining guesses 
 			guess_num++; 
 
-		} // while loop ends 
+		}
 
 		// if the lifelines finishes 
 		if (wrong == 5) { 
@@ -160,7 +136,7 @@ class Game {
 		} 
 		else { 
 
-			// when solved 
+			// when all letters guessed correctly
 			System.out.print( 
 				"The word is: " + word1 
 				+ "\n Well Played, you did it!!"); 
